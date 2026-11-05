@@ -207,3 +207,44 @@ const { apps, loading } = useApps();
 
 
 <br>
+
+
+
+### 📌 App Details 
+
+<details>
+<summary>BarChart Structure </summary>
+
+```
+<ResponsiveContainer width="100%" height="100%">
+    <BarChart data={chartData} layout="vertical">
+
+        {/* 1. X Axis */}
+        <XAxis
+            type="number"
+            dataKey="count"
+        />
+
+        {/* 2. Y Axis */}
+        <YAxis
+            type="category"
+            dataKey="name"
+        />
+
+        {/* 3. Bar */}
+        <Bar
+            dataKey="count"
+            fill="#ff850e"
+            barSize={17}
+            radius={0}
+        />
+
+        {/* 4. Tooltip */}
+        <Tooltip />
+
+    </BarChart>
+</ResponsiveContainer>
+
+```
+
+</details>
