@@ -1,35 +1,14 @@
 import React, { use, useEffect, useState } from 'react';
-import { Download, Star } from 'lucide-react';
 import AppCard from '../../ui/AppCard';
 import { HashLoader } from 'react-spinners';
+import { Link } from 'react-router';
+import { ChevronRight } from 'lucide-react';
+import useApps from '../../hooks/useApps';
 
 
 const TrendingApps = () => {
-    const [apps, setApps] = useState([]);
-    const [loading, setLoading] = useState(true);
 
-
-    // Data fetching - Way - 03
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch("/data.json");
-            const data = await res.json()
-
-            setTimeout(() => {
-                setApps(data)
-                setLoading(false)
-            }, 5000)
-
-            // setApps(data)
-            // setLoading(false)
-        }
-        fetchData()
-    }, [])
-
-
-
-
-
+    const { apps, loading } = useApps()
 
 
     return (
@@ -55,19 +34,35 @@ const TrendingApps = () => {
                 {
                     loading ? (
                         <div className='flex justify-center mx-auto py-7'>
-                            <HashLoader color='#632EE3'></HashLoader>
+                            <HashLoader color='#632EE3' size={35}></HashLoader>
                         </div>
 
                     ) : (
                         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
                             {
-                                apps.slice(0, 9).map((app, index) => <AppCard
+                                apps.slice(0, 8).map((app, index) => <AppCard
                                     key={index}
                                     app={app}></AppCard>)
                             }
                         </div>
                     )
+                }
+
+
+
+
+
+
+                {/* View All Button */}
+                {
+                    loading === false && <div className="flex justify-center mt-8">
+                        <Link to="/apps">
+                            <button className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#632EE3] to-[#9F62F2] px-8 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
+                                View all <ChevronRight size={18} />
+                            </button>
+                        </Link>
+                    </div>
                 }
 
 
