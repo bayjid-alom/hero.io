@@ -1,51 +1,72 @@
-
 import React from 'react';
 
 const Stats = () => {
-    const statistics = [
-        {
-            value: '29.6M',
-            label: 'Total Downloads',
-            description: 'Across all platforms'
-        },
-        {
-            value: '906K',
-            label: 'Total Reviews',
-            description: 'With 4.8 star rating'
-        },
-        {
-            value: '132+',
-            label: 'Active Apps',
-            description: 'In different categories'
-        }
-    ];
 
     return (
-        <section className="bg-gradient-to-r from-[#632EE3] to-[#9F62F2] py-10 text-white md:py-12">
-            <div className="mx-auto w-[94%] md:w-[92%] lg:w-[90%]">
+        <section className=" bg-gradient-to-b from-[#632EE3] to-[#9F62F2] px-4 py-10 md:py-15 ">
 
-                <h2 className="text-center text-xl font-bold tracking-tight sm:text-2xl md:text-3xl">
-                    Trusted By Millions, Built For You
-                </h2>
+            <div className="mx-auto w-[95%] md:w-[88%] lg:w-[80%]">
 
-                <div className="mt-8 grid grid-cols-3 gap-3 text-center md:mt-10 md:gap-6">
-                    {statistics.map((stat, index) => (
-                        <div key={index}>
-                            <p className="text-[10px] font-medium text-purple-100 md:text-sm">
-                                {stat.label}
-                            </p>
+                {/* Section Heading */}
+                <div className="text-center">
+                    <h2 className="text-xl font-bold tracking-tight text-white sm:text-2xl md:text-3xl lg:text-4xl">
+                        Trusted By Millions, Built For You
+                    </h2>
 
-                            <h3 className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl md:text-5xl">
-                                {stat.value}
-                            </h3>
-
-                            <p className="mt-2 text-[8px] text-purple-100 sm:text-[10px] md:text-xs">
-                                {stat.description}
-                            </p>
-                        </div>
-                    ))}
+                    <p className="mx-auto mt-3 max-w-xl text-xs leading-6 text-purple-100 sm:text-sm md:text-base">
+                        Join millions of users who trust HERO.IO for their everyday app experience.
+                    </p>
                 </div>
 
+                {/* Statistics */}
+                <div className="mt-8 grid grid-cols-1 text-center md:mt-12 md:grid-cols-3">
+
+                    {/* Downloads */}
+                    <div className="flex flex-col items-center justify-center py-6">
+                        <p className="text-sm font-medium text-purple-100 md:text-base">
+                            Total Downloads
+                        </p>
+
+                        <h3 className="mt-2 text-4xl font-extrabold text-white md:text-5xl lg:text-[60px]">
+                            29.6M
+                        </h3>
+
+                        <p className="mt-2 text-xs font-medium text-white/90 md:text-sm">
+                            21% more than last month
+                        </p>
+                    </div>
+
+                    {/* Reviews */}
+                    <div className="flex flex-col items-center justify-center border-y border-white/20 py-6 md:border-x md:border-y-0">
+                        <p className="text-sm font-medium text-purple-100 md:text-base">
+                            Total Reviews
+                        </p>
+
+                        <h3 className="mt-2 text-4xl font-extrabold text-white md:text-5xl lg:text-[60px]">
+                            906K
+                        </h3>
+
+                        <p className="mt-2 text-xs font-medium text-white/90 md:text-sm">
+                            46% more than last month
+                        </p>
+                    </div>
+
+                    {/* Active Apps */}
+                    <div className="flex flex-col items-center justify-center py-6">
+                        <p className="text-sm font-medium text-purple-100 md:text-base">
+                            Active Apps
+                        </p>
+
+                        <h3 className="mt-2 text-4xl font-extrabold text-white md:text-5xl lg:text-[60px]">
+                            132+
+                        </h3>
+
+                        <p className="mt-2 text-xs font-medium text-white/90 md:text-sm">
+                            31 more will launch
+                        </p>
+                    </div>
+
+                </div>
             </div>
         </section>
     );

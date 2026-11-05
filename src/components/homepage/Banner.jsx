@@ -6,7 +6,7 @@ import appStoreImage from "../../assets/icons/app-store-icon.png";
 
 const Banner = () => {
     return (
-        <section className="overflow-hidden bg-[#F8F8FA] pt-24 pb-0 md:pt-30">
+        <section className="overflow-hidden bg-[#F8F8FA] pt-12 pb-0 md:pt-16">
 
             <div className="mx-auto flex w-[94%] flex-col items-center text-center md:w-[92%] lg:w-[90%]">
 
@@ -29,12 +29,12 @@ const Banner = () => {
 
                     {/* App Store Badges */}
                     <div className="mt-5 flex flex-wrap items-center justify-center gap-3 md:mt-7">
-                        <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-xs font-semibold text-gray-700  md:text-sm">
+                        <div className="flex items-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-2.5 text-xs font-semibold text-gray-700  md:text-sm">
                             <img src={playStoreImage} alt="Google Play" className="h-5 w-5 object-contain" />
                             Google Play
                         </div>
 
-                        <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-xs font-semibold text-gray-700 md:text-sm">
+                        <div className="flex items-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-2.5 text-xs font-semibold text-gray-700 md:text-sm">
                             <img src={appStoreImage} alt="App Store" className="h-5 w-5 object-contain" />
                             App Store
                         </div>
