@@ -1,55 +1,3 @@
-// import React from 'react';
-// import { useParams } from 'react-router';
-// import useApps from '../../hooks/useApps';
-
-// const AppDetails = () => {
-
-
-
-//     console.log(expectedApp, "expected");
-//     const { appID } = useParams();
-//     const { apps, loading } = useApps();
-
-//     // Wait until data loads
-//     if (loading) {
-//         return <p>Loading...</p>;
-//     }
-
-//     const expectedApp = apps.find(app => app.id === Number(appID));
-
-//     // Handle invalid ID
-//     // if (!expectedApp) {
-//     //     return <p>App not found!</p>;
-//     // }
-
-//     const {
-//         image,
-//         title,
-//         companyName,
-//         id,
-//         description,
-//         size,
-//         reviews,
-//         ratingAvg,
-//         downloads,
-//         ratings
-//     } = expectedApp;
-
-//     return (
-//         <div>
-//             <h2>{title}</h2>
-//             <p>{description}</p>
-//             <img src={image} alt={title} />
-//         </div>
-//     );
-// };
-
-// export default AppDetails;
-
-
-
-
-
 import React from 'react';
 import { useParams } from 'react-router';
 import { Download, Star, MessageSquare } from 'lucide-react';
@@ -93,6 +41,7 @@ const AppDetails = () => {
     // Find the expected app using ID
     const expectedApp = apps.find(app => app.id === Number(appID));
 
+    
     // Handle invalid app ID
     if (!expectedApp) {
         return (

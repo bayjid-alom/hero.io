@@ -1,12 +1,16 @@
 import { Download, Star } from 'lucide-react';
 import React from 'react';
+import { Link } from 'react-router';
 
 const AppCard = ({ app }) => {
 
-    const { image, title, downloads, ratingAvg } = app;
+    const { id, image, title, downloads, ratingAvg } = app;
 
     return (
-        <div className="app-card group rounded-xl bg-white p-4 shadow-[0_5px_25px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(99,46,227,0.15)]">
+
+
+        <Link to={`/app-details/${id}`}
+            className="app-card group rounded-xl bg-white p-4 shadow-[0_5px_25px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(99,46,227,0.15)]">
 
             {/* App Image */}
             <div className="aspect-square overflow-hidden rounded-xl bg-gray-100">
@@ -39,7 +43,7 @@ const AppCard = ({ app }) => {
 
             </div>
 
-        </div>
+        </Link>
     );
 };
 

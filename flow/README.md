@@ -248,3 +248,24 @@ const { apps, loading } = useApps();
 ```
 
 </details>
+
+<br>
+
+
+
+#### || Fix : Undefined
+```
+// Wait until data loads
+if (loading) {
+     return (
+        <div className='flex min-h-[60vh] items-center justify-center'>
+        <HashLoader color='#632EE3' size={35}></HashLoader>
+    </div>
+    );
+}
+```
+
+
+---
+
+
