@@ -41,7 +41,7 @@ const AppDetails = () => {
     // Find the expected app using ID
     const expectedApp = apps.find(app => app.id === Number(appID));
 
-    
+
     // Handle invalid app ID
     if (!expectedApp) {
         return (

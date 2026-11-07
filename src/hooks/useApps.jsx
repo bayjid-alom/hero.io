@@ -20,7 +20,7 @@ const useApps = () => {
     }, [])
 
 
-    return {apps, loading};   // must be return
+    return { apps, loading };   // must be return
 };
 
 export default useApps;
