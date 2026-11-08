@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router';
 import { Download, Star, MessageSquare } from 'lucide-react';
 import {
@@ -11,16 +11,20 @@ import {
 } from 'recharts';
 import useApps from '../../hooks/useApps';
 import { HashLoader } from 'react-spinners';
+import { InstalledAppsContext } from '../../context/InstalledAppsProvider';
 
 
 
 const AppDetails = () => {
+
+    const { handleInstallApp } = useContext(InstalledAppsContext);
 
     // Not working as expected
     // const { appID } = useParams();
     // const { apps, loading } = useApps();
     // const expectedApp = apps.find(app => app.id === Number(appID));
     // console.log(expectedApp, "Expected");  // Undefined Expected
+    // To fix : show spinner 
 
 
     // Get app ID from URL
@@ -73,6 +77,11 @@ const AppDetails = () => {
 
     // Reverse ratings to show 5 star first
     const chartReversedData = [...ratings].reverse();
+
+
+
+
+
 
 
 
@@ -160,7 +169,9 @@ const AppDetails = () => {
                     </div>
 
                     {/* Install Button */}
-                    <button className="rounded-sm bg-emerald-500 px-4 py-2 text-xs font-semibold text-white transition-colors duration-200 hover:bg-emerald-600">
+                    <button
+                        onClick={() => handleInstallApp(expectedApp)}
+                        className="rounded-sm bg-emerald-500 px-4 py-2 text-xs font-semibold text-white transition-colors duration-200 hover:bg-emerald-600">
                         Install Now ({size} MB)
                     </button>
 

@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { RouterProvider } from 'react-router/dom'
 import { router } from './router/Routes'
+import InstalledAppsProvider from './context/InstalledAppsProvider'
+import { ToastContainer } from 'react-toastify'
 
 
 
@@ -11,8 +13,9 @@ import { router } from './router/Routes'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
 
-    <RouterProvider router={router}>
-    </RouterProvider>
-
+    <InstalledAppsProvider>
+      <RouterProvider router={router}> </RouterProvider>
+    </InstalledAppsProvider>
+    <ToastContainer></ToastContainer>
   </StrictMode>,
 )
