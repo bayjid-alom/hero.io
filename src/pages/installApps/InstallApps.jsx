@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Download, Star } from 'lucide-react';
 import { InstalledAppsContext } from '../../context/InstalledAppsProvider';
 import { toast } from 'react-toastify';
+import appError from "../../assets/images/App-Error.png"
 
 const InstallApps = () => {
     const { installedApps,
@@ -174,13 +175,22 @@ const InstallApps = () => {
 
                 {/* Empty State */}
                 {installedApps.length === 0 && (
-                    <div className="py-16 text-center bg-gray-50 rounded-xl border border-gray-100">
-                        <h3 className="text-lg font-bold text-gray-800">
+                    <div className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-12 text-center sm:py-14 md:py-16">
+
+                        <img
+                            className="mx-auto h-32 w-auto object-contain sm:h-36 md:h-44 lg:h-60 xl:h-64"
+                            src={appError}
+                            alt="No apps found"
+                        />
+
+                        <h3 className="mt-5 text-lg font-extrabold text-gray-800 sm:text-xl md:text-2xl">
                             No Apps Installed Yet!
                         </h3>
-                        <p className="mt-2 text-sm text-gray-500">
-                            Explore apps and install your favorites.
+
+                        <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-gray-500 md:text-base">
+                            You haven't installed any apps yet. Explore our collection and install your favorite apps to get started.
                         </p>
+
                     </div>
                 )}
 
