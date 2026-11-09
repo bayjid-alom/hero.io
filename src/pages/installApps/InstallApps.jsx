@@ -1,11 +1,41 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Download, Star } from 'lucide-react';
 import { InstalledAppsContext } from '../../context/InstalledAppsProvider';
 import { toast } from 'react-toastify';
 
 const InstallApps = () => {
-    const { installedApps, setInstalledApps } = useContext(InstalledAppsContext);
+    const { installedApps,
+        setInstalledApps,
+        sortingType,
+        setSortingType } = useContext(InstalledAppsContext);
+
+
+
+
+    const [filteredForSort, setFilteredForSort] = useState(installedApps)
+    useEffect(() => {
+        if (sortingType) {
+
+            if (sortingType === "size") {
+                const sortedData = [...installedApps].sort((a, b) => a.size - b.size);
+                setFilteredForSort(sortedData);
+            }
+            else if (sortingType === "rating") {
+                const sortedData = [...installedApps].sort((a, b) => b.ratingAvg - a.ratingAvg);
+                setFilteredForSort(sortedData);
+            }
+            else if (sortingType === "name") {
+                const sortedData = [...installedApps].sort((a, b) => a.title.localeCompare(b.title));
+                setFilteredForSort(sortedData);
+            }
+
+        }
+
+    }, [sortingType, installedApps]);
+
+
+
 
 
     const handleUninstall = (app) => {
@@ -44,9 +74,9 @@ const InstallApps = () => {
                     <div
                         tabIndex={0}
                         role="button"
-                        className="btn min-h-0 h-9 w-36 md:w-40 border border-gray-200 rounded-lg bg-white text-gray-700 text-xs md:text-sm font-medium shadow-none hover:bg-gray-50"
+                        className="btn min-h-0 h-9 whitespace-nowrap w-36 md:w-40 border border-gray-200 rounded-lg bg-white text-gray-700 text-xs md:text-sm font-medium shadow-none hover:bg-gray-50"
                     >
-                        Sort By Size
+                        Sort by : {sortingType}
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-4 h-4"
@@ -63,9 +93,15 @@ const InstallApps = () => {
                         tabIndex={0}
                         className="dropdown-content menu mt-1 w-40 rounded-lg bg-white border border-gray-100 p-2 shadow-md text-sm text-gray-600 z-10"
                     >
-                        <li><a>Size</a></li>
-                        <li><a>Rating</a></li>
-                        <li><a>Name</a></li>
+                        <li onClick={() => setSortingType("size")}>
+                            <a>Size</a>
+                        </li>
+                        <li onClick={() => setSortingType("rating")}>
+                            <a>Rating</a>
+                        </li>
+                        <li onClick={() => setSortingType("name")}>
+                            <a>Name</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -77,7 +113,8 @@ const InstallApps = () => {
             {/* Installed Apps Container */}
             <div className="flex flex-col gap-3">
 
-                {installedApps.map(app => (
+                {/* {installedApps.map(app => ( */}
+                {filteredForSort.map(app => (
                     <div
                         key={app.id}
                         className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl bg-white border border-gray-100 p-4 shadow-sm hover:shadow-md transition-shadow duration-200"
